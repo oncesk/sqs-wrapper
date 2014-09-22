@@ -31,12 +31,11 @@ class Manager implements ManagerInterface {
 	/**
 	 * @param string $key
 	 * @param string $secret
-	 * @param string $queueUrl
 	 * @param string $region
 	 *
 	 * @return SqsClient
 	 */
-	public static function createClient($key, $secret, $queueUrl, $region = Region::IRELAND) {
+	public static function createClient($key, $secret, $region = Region::IRELAND) {
 		$config = new Collection(array(
 			ClientOptions::KEY => $key,
 			ClientOptions::SECRET => $secret,
