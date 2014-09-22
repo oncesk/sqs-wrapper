@@ -1,8 +1,11 @@
 <?php
 namespace SqsWrapper;
 
+use Aws\Common\Enum\Region;
 use Aws\Sqs\SqsClient;
 use Guzzle\Service\Resource\Model;
+use Guzzle\Common\Collection;
+use Aws\Common\Enum\ClientOptions;
 
 /**
  * Class Manager
@@ -24,6 +27,22 @@ class Manager implements ManagerInterface {
 	 * @var string
 	 */
 	private $queueUrl;
+
+	/**
+	 * @param string $key
+	 * @param string $secret
+	 * @param string $region
+	 *
+	 * @return SqsClient
+	 */
+	public static function createClient($key, $secret, $region = Region::IRELAND) {
+		$config = new Collection(array(
+			ClientOptions::KEY => $key,
+			ClientOptions::SECRET => $secret,
+			ClientOptions::REGION => $region
+		));
+		return SqsClient::factory($config);
+	}
 
 	/**
 	 * @param SqsClient $client
