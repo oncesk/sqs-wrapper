@@ -14,5 +14,10 @@
 	],
 	"require" : {
 		"aws/aws-sdk-php" : "2.6.16"
+	},
+	"autoload": {
+		"psr-0": {
+			"SqsWrapper": "src/"
+		}
 	}
 }
