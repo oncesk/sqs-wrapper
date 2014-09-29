@@ -1,7 +1,7 @@
 <?php
 namespace SqsWrapper;
 
-use Guzzle\Http\Message\MessageInterface;
+use SqsWrapper\MessageInterface;
 use Guzzle\Service\Resource\Model;
 
 /**
